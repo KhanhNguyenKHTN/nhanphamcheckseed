@@ -4,7 +4,7 @@ const port = 3000;
 var crypto = require('crypto');
 var array = "abcdef0123456789";
 var result = "";
-
+var mainSeed = "";
 function GenerateRanDomHash()
 {
     var temp = "";
@@ -16,7 +16,7 @@ function GenerateRanDomHash()
 }
 function checkSeed()
 {
-    var mainSeed = GenerateRanDomHash();
+    mainSeed = GenerateRanDomHash();
     var seed = mainSeed;
     for (let index = 0; index < 50000; index++) {
         seed = crypto.createHash('sha256').update(seed).digest('hex');//lib.genGameHash(seed);
@@ -32,7 +32,10 @@ const server = http.createServer((req, res) => {
     //Set the response HTTP header with HTTP status and Content type
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end(result);
+    var stringMess = "Dang chay\n";
+    stringMess += mainSeed;
+    stringMess += result;
+    res.end(stringMess);
 });
 setTimeout(() => {
     server.listen(port, hostname, () => {
