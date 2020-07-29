@@ -103,23 +103,3 @@ setInterval(() => {
     checkFinalSeed();
 }, 0);
 
-
-setInterval(() => {
-    checkFinalSeed();
-}, 0);
-
-setInterval(() => {
-    checkFinalSeed();
-}, 0);
-
-setInterval(() => {
-    checkFinalSeed();
-}, 0);
-
-setInterval(() => {
-    checkFinalSeed();
-}, 0);
-
-setInterval(() => {
-    checkFinalSeed();
-}, 0);
