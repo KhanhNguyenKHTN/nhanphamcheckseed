@@ -4,7 +4,7 @@ const port = 3000;
 var crypto = require('crypto');
 var array = "abcdef0123456789";
 var result = "";
-var mainSeed = "";
+var tempSeed = "";
 function GenerateRanDomHash()
 {
     var temp = "";
@@ -16,7 +16,22 @@ function GenerateRanDomHash()
 }
 function checkSeed()
 {
-    mainSeed = GenerateRanDomHash();
+    var mainSeed = GenerateRanDomHash();
+    tempSeed = mainSeed + "\n";
+    var seed = mainSeed;
+    for (let index = 0; index < 50000; index++) {
+        seed = crypto.createHash('sha256').update(seed).digest('hex');//lib.genGameHash(seed);
+        if(seed === '8b4f68e52d9d2ef378b9dcd3330c81c610fd772af235c507e75510f18b5a9bc2')
+        {
+            result += "Seed: " + mainSeed + "    ***Index: " + index + "\n";
+        }
+    }    
+}
+
+function checkFinalSeed()
+{
+    var mainSeed = GenerateRanDomHash();
+    tempSeed += mainSeed + "\n";
     var seed = mainSeed;
     for (let index = 0; index < 50000; index++) {
         seed = crypto.createHash('sha256').update(seed).digest('hex');//lib.genGameHash(seed);
@@ -33,7 +48,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     var stringMess = "Dang chay\n";
-    stringMess += mainSeed;
+    stringMess += tempSeed;
     stringMess += result;
     res.end(stringMess);
 });
@@ -41,8 +56,70 @@ setTimeout(() => {
     server.listen(port, hostname, () => {
         console.log(`Server running at http://${hostname}:${port}/`);
     })
-}, 200);
+}, 100);
 
 setInterval(() => {
     checkSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
+}, 0);
+
+setInterval(() => {
+    checkFinalSeed();
 }, 0);
